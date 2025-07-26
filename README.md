@@ -1,4 +1,4 @@
-# brillium-postman-collection
+# brillium-api-postman-collection
 Brillium API Postman Collections Repository
 
 # Welcome to the Brillium API Postman Collection!
