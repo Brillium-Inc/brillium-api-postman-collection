@@ -1,0 +1,1232 @@
+{
+	"info": {
+		"_postman_id": "feba8e5c-269d-4c9b-81c3-85cae68fc7b7",
+		"name": "Assessment Builder API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "00000000"
+	},
+	"item": [
+		{
+			"name": "Assessments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments"
+					]
+				},
+				"description": "Retrieve all assessments in a Assessment Builder tenant (i.e. mycompany.onlinetests.app)"
+			},
+			"response": [
+				{
+					"name": "Assessments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Assessments",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Assessments"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Assessments\": [\n        {\n            \"Id\": \"ASSESSMENTID\",\n            \"AccountId\": \"EXAMPLE\",\n            \"Name\": \"COURSE 1123 EXAM\",\n            \"Password\": \"******\",\n            \"Anonymous\": \"No\",\n            \"Mode\": \"Normal\",\n            \"Active\": \"Enabled\",\n            \"DateStart\": \"2000-01-01T04:00:00-05:00\",\n            \"DateEnd\": \"3000-12-31T16:59:59-05:00\",\n            \"QuestionCount\": 14,\n            \"RespondentCount\": 44,\n            \"PassingScore\": 60,\n            \"ScalePoints\": 0,\n            \"LogoUrl\": \"images/YourLogo_Demonstration.gif\",\n            \"PostLinkUrl\": \"\",\n            \"ResultSendMethod\": \"None\",\n            \"ResultSendUrl\": \"\",\n            \"AppIntegration\": \"None\",\n            \"MD5Password\": \"\",\n            \"LogoutButtonLabel\": \"Logout\",\n            \"ExplanationLabel\": \"Reference\",\n            \"ViewScore\": \"AllScores\",\n            \"ViewReview\": \"Yes\",\n            \"ViewReviewQuestions\": \"AllQuestions\",\n            \"ViewReviewAnswers\": \"QuestionsAnswersExplanations\",\n            \"ViewEmailResults\": \"Yes\",\n            \"AllowRetakes\": \"YesToMaximum\",\n            \"MaxRetakes\": 999,\n            \"HoursBetweenRetakes\": 0,\n            \"NotifyNewResults\": \"Yes\",\n            \"GroupPresentation\": \"Sequential\",\n            \"QuestionsPerPage\": 1,\n            \"AnswersRequired\": \"SurveyTypeQuestions\",\n            \"AllowSaveInfo\": \"Yes\",\n            \"AllowPrintCopy\": \"Yes\",\n            \"TimeAllowed\": 0,\n            \"ProctorRequired\": \"No\",\n            \"CertificateIssued\": 0,\n            \"CertificateId\": 0,\n            \"DateCreated\": \"2002-02-21T14:30:32-05:00\",\n            \"DateModified\": \"2009-02-11T14:58:20-05:00\",\n            \"Uri\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID\",\n            \"RelatedUris\": {\n                \"QuestionGroups\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID/QuestionGroups\",\n                \"Questions\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID/Questions\",\n                \"Respondents\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID/Respondents\",\n                \"Incompletes\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID/Incompletes\",\n                \"Invitations\": \"https://example.onlinetests.app/api/Assessments/ASSESSMENTID/Invitations\"\n            }\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Assessment by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}"
+					]
+				},
+				"description": "Retrieve a single Assessment based on the Id provided"
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Incomplete Respondents by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Incompletes",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Incompletes"
+					]
+				},
+				"description": "Retrieve all incomplete Respondents for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Invitations by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Invitations",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Invitations"
+					]
+				},
+				"description": "Retrieve all Invitations for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Invitations by Email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Invitations/{{api_email_address}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Invitations",
+						"{{api_email_address}}"
+					]
+				},
+				"description": "Retrieve all Invitations for a given email address for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Respondent by Respondent Unique Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Respondents/{{api_respondent_uniqueId}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Respondents",
+						"{{api_respondent_uniqueId}}"
+					]
+				},
+				"description": "Retrieve a single Respondent for an Assessment, using the unique identifier as defined in the Workspace Respondent Fields."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Respondents by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Respondents",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Respondents"
+					]
+				},
+				"description": "Retrieve all Respondents for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Questions by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/Questions",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"Questions"
+					]
+				},
+				"description": "Retrieve all Questions for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Assessment Topics by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Assessments/{{api_assessment_id}}/QuestionGroups",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Assessments",
+						"{{api_assessment_id}}",
+						"QuestionGroups"
+					]
+				},
+				"description": "Retrieve all Question Topics for an Assessment."
+			},
+			"response": []
+		},
+		{
+			"name": "Comment by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Comments/{{api_comment_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Comments",
+						"{{api_comment_id}}"
+					]
+				},
+				"description": "Retrieve a single Comment by Comment Id."
+			},
+			"response": [
+				{
+					"name": "Comment by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Comments/9741",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Comments",
+								"9741"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Comments\": [\n        {\n            \"Id\": 0,\n            \"RespId\": 8255,\n            \"QuesId\": 10284,\n            \"Type\": \"Essay\",\n            \"Text\": \"Very informative and helpful.\",\n            \"Uri\": \"http://example.onlinetests.app/api/Comments/0\",\n            \"RelatedUris\": null\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "EmailTemplates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{auth_base_uri}}/EmailTemplates",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"EmailTemplates"
+					]
+				},
+				"description": "Retrieve all Email Templates for the entire Assessment Builder tenant (i.e. mycompany.onlinetests.app)."
+			},
+			"response": []
+		},
+		{
+			"name": "Email Template by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/EmailTemplates/{{api_email_template_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"EmailTemplates",
+						"{{api_email_template_id}}"
+					]
+				},
+				"description": "Retrieve a single Email Template by Id."
+			},
+			"response": [
+				{
+					"name": "Email Template by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/EmailTemplates/42",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"EmailTemplates",
+								"42"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"EmailTemplates\": [\n        {\n            \"Id\": 42,\n            \"AccountId\": \"EXAMPLE\",\n            \"Type\": \"Invite\",\n            \"IsShared\": true,\n            \"Name\": \"Assessment Invitation\",\n            \"FromEmail\": \"EXAMPLE@examplemail.com\",\n            \"FromName\": \"\",\n            \"ReplyTo\": \"\",\n            \"Format\": \"PlainText\",\n            \"Subject\": \"Assessment Invitation - [ASSESS_NAME]\",\n            \"Body\": \"Below you will find the Web address required to sign into the \\n\\t\\t\\t\\t [ASSESS_NAME] assessment.  In most email software, you will be able to click on    \\n\\t\\t\\t\\t the link provided below to navigate to the sign-on page.  If your email \\n\\t\\t\\t\\t software does not support this functionality, please enter the link manually \\n\\t\\t\\t\\t (or copy and paste) into your browser (starting with \\\"http\\\").  Once on the \\n\\t\\t\\t\\t sign-on page, enter the required information and click on the Login \\n\\t\\t\\t\\t button.\\r\\n\\r\\nAssessment Web Address:\\r\\n[INVITE_URL]\\r\\n\\r\\nGood \\n\\t\\t\\t\\t luck!\\r\\n\\r\\nAssessment Administrators\\r\\n[ACCOUNT_NAME]\",\n            \"DateCreated\": \"2011-01-14T14:36:44-05:00\",\n            \"DateModified\": \"2011-03-18T14:13:46-04:00\",\n            \"Uri\": \"http://example.onlinetests.app/api/EmailTemplates/42\",\n            \"RelatedUris\": null\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Invitation(s) - Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "AssessId",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "FirstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "LastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "Custom",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{auth_base_uri}}/Invitations?SendEmails=true",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Invitations"
+					],
+					"query": [
+						{
+							"key": "SendEmails",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Create one or more Invitations for an Assessment."
+			},
+			"response": [
+				{
+					"name": "Invitation(s) - Add (POST)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "AssessId",
+									"value": "000TEST",
+									"type": "text"
+								},
+								{
+									"key": "FirstName",
+									"value": "Albert",
+									"type": "text"
+								},
+								{
+									"key": "LastName",
+									"value": "Smythe",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "asmythe@email.com",
+									"type": "text"
+								},
+								{
+									"key": "Custom",
+									"value": "[\"123456\",\n\"Male\",\n\"5-9 years\"\n]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_base_uri}}/Invitations?SendEmails=true",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Invitations"
+							],
+							"query": [
+								{
+									"key": "SendEmails",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Invitations\": [\n        {\n            \"AssessId\": \"000TEST\",\n            \"FirstName\": \"Albert\",\n            \"LastName\": \"Smythe\",\n            \"Email\": \"asmythe@email.com\",\n            \"Custom\": [\n                \"123456\",\n                \"Male\",\n                \"5-9 years\"\n            ]\n        }\n    ],\n    \"SendEmails\": true\n}"
+				},
+				{
+					"name": "Invitation(s) - Add (Response)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "AssessId",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "FirstName",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "LastName",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Custom",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_base_uri}}/Invitations?SendEmails=true",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Invitations"
+							],
+							"query": [
+								{
+									"key": "SendEmails",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Invitations\": [\n        {\n            \"Id\": 463,\n            \"AssessId\": \"000TEST\",\n            \"Code\": \"ejJweHE6\",\n            \"SourceId\": \"\",\n            \"SourceName\": \"API\",\n            \"Status\": \"Invited\",\n            \"FirstName\": \"Albert\",\n            \"LastName\": \"Smythe\",\n            \"Email\": \"asmythe@email.com\",\n            \"Custom\": [\n                \"123456\",\n                \"Male\",\n                \"5-9 years\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\"\n            ],\n            \"DateCreated\": \"2015-04-09T14:50:43-05:00\",\n            \"DateModified\": \"2015-04-09T14:50:43-05:00\",\n            \"Uri\": \"http://example.onlinetests.app/api/Invitations/463\",\n            \"RelatedUris\": null\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 2,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Invitation by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Invitations/{{api_invitation_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Invitations",
+						"{{api_invitation_id}}"
+					]
+				},
+				"description": "Retrieve a single Invitation by Id."
+			},
+			"response": [
+				{
+					"name": "Invitation by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Invitations/11",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Invitations",
+								"11"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Invitations\": [\n        {\n            \"Id\": 11,\n            \"AssessId\": \"000TEST\",\n            \"Code\": \"JFAF22eP\",\n            \"SourceId\": \"20110126_Q7FDLW6X~2\",\n            \"SourceName\": \"Spreadsheet Import\",\n            \"Status\": \"New\",\n            \"FirstName\": \"Tom\",\n            \"LastName\": \"Jones\",\n            \"Email\": \"tjones@email.com\",\n            \"Custom\": [\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\",\n                \"\"\n            ],\n            \"DateCreated\": \"2011-01-26T17:15:43-05:00\",\n            \"DateModified\": \"2011-01-26T17:16:17-05:00\",\n            \"Uri\": \"http://example.onlinetests.app/api/Invitations/11\",\n            \"RelatedUris\": null\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Invitation by Invitation Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Invitations/{{api_invitation_code}}/Code",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Invitations",
+						"{{api_invitation_code}}",
+						"Code"
+					]
+				},
+				"description": "Retrieve a single Invitation by Invitation Code."
+			},
+			"response": []
+		},
+		{
+			"name": "Question by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Questions/{{api_question_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Questions",
+						"{{api_question_id}}"
+					]
+				},
+				"description": "Retrieve a single Question by Id."
+			},
+			"response": [
+				{
+					"name": "Question by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Questions/10271",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Questions",
+								"10271"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Questions\": [\n        {\n            \"Id\": 10271,\n            \"AssessId\": \"ASSESSMENTID\",\n            \"GroupId\": 149,\n            \"OrigQuesId\": 0,\n            \"ReferenceId\": \"0\",\n            \"Type\": \"MultipleChoice\",\n            \"Sequence\": 2,\n            \"Points\": 1,\n            \"ResourceUrl\": \"\",\n            \"AllowComments\": \"Yes\",\n            \"AnswerPresentation\": \"Sequential\",\n            \"Text\": \"What geographic regions</B> currently prohibit the \\n\\t\\t\\t\\t\\t  sales</STRONG> of the \\\"No-Suds\\\" and \\\"Color Stay Bleach\\\"    \\n\\t\\t\\t\\t\\t  products?\",\n            \"CorrectExplanation\": \"North America.  Currently, the EPA is in the process of  \\n\\t\\t\\t\\t\\t  reviewing the chemical agents used in the products, for use in home septic     \\n\\t\\t\\t\\t\\t  systems.\",\n            \"IncorrectExplanation\": \"North America.  Currently, the EPA is in the process of  \\n\\t\\t\\t\\t\\t  reviewing the chemical agents used in the products, for use in home septic \\n\\t\\t\\t\\t\\t  systems.\",\n            \"AuthorsNotes\": \"here are some author notes.\",\n            \"Tags\": [\n                \"addition\",\n                \"testing\",\n                \"subtraction\"\n            ],\n            \"Answers\": [],\n            \"Uri\": \"http://example.onlinetests.app/api/Questions/10271\",\n            \"RelatedUris\": {\n                \"Results\": \"http://example.onlinetests.app/api/Questions/10271/Results\",\n                \"Comments\": \"http://example.onlinetests.app/api/Questions/10271/Comments\"\n            }\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Question Comments by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Questions/{{api_question_id}}/Comments",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Questions",
+						"{{api_question_id}}",
+						"Comments"
+					]
+				},
+				"description": "Retrieve a Question’s Comments based on the Id provided."
+			},
+			"response": []
+		},
+		{
+			"name": "Question Results by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Questions/{{api_question_id}}/Results",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Questions",
+						"{{api_question_id}}",
+						"Results"
+					]
+				},
+				"description": "Retrieve a Question’s Results based on the Id provided."
+			},
+			"response": []
+		},
+		{
+			"name": "Respondents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents"
+					]
+				},
+				"description": "Retrieve all Respondents for a brillium tenant (includes all Workspaces accessible by the API user Id)."
+			},
+			"response": []
+		},
+		{
+			"name": "Respondent by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents/{{api_respondent_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents",
+						"{{api_respondent_id}}"
+					]
+				},
+				"description": "Retrieve a single Respondent Id."
+			},
+			"response": [
+				{
+					"name": "Respondent by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Respondents/1476",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Respondents",
+								"1476"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Respondents\": [\n        {\n            \"Id\": 1476,\n            \"AssessId\": \"ASSESSMENTID\",\n            \"FirstName\": \"JOHN\",\n            \"LastName\": \"DOE\",\n            \"Email\": \"jdoe1@email.com\",\n            \"Custom1\": \"11223344\",\n            \"Custom2\": \"Boston\",\n            \"Custom3\": \"Joel Wood\",\n            \"Custom4\": \"Jane Smith\",\n            \"Custom5\": \"\",\n            \"Custom6\": \"\",\n            \"Custom7\": \"\",\n            \"Custom8\": \"\",\n            \"Custom9\": \"\",\n            \"Custom10\": \"\",\n            \"Custom11\": \"\",\n            \"Custom12\": \"\",\n            \"Custom13\": \"\",\n            \"Custom14\": \"\",\n            \"Custom15\": \"\",\n            \"Guid\": \"2EFEBC6852FF42388E51D12CF8127A0F\",\n            \"RawScore\": 57,\n            \"ScalePoints\": 23,\n            \"FinalScore\": 80,\n            \"PassFail\": \"Pass\",\n            \"StatusCode\": 50,\n            \"TimesTaken\": 2,\n            \"TimeUsed\": 916,\n            \"DateStarted\": \"2003-10-08T13:56:15-04:00\",\n            \"DateFinished\": \"2003-10-08T14:11:31-04:00\",\n            \"DateRestarted\": \"1900-01-01T00:00:00-05:00\",\n            \"EssayCount\": 1,\n            \"EssayPoints\": 1,\n            \"TotalPoints\": 7,\n            \"EarnedPoints\": 4,\n            \"DemoMode\": false,\n            \"CreditUsed\": true,\n            \"ProctorId\": \"\",\n            \"CourseItemResultId\": 0,\n            \"Attempt\": 2,\n            \"Current\": true,\n            \"Page\": 3,\n            \"TotalPages\": 3,\n            \"Uri\": \"http://example.onlinetests.app/api/Respondents/1476\",\n            \"RelatedUris\": {\n                \"Results\": \"http://example.onlinetests.app/api/Respondents/1476/Results\",\n                \"Comments\": \"http://example.onlinetests.app/api/Respondents/1476/Comments\"\n            }\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Respondent by GUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents/{{api_respondent_guid}}/Guid",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents",
+						"{{api_respondent_guid}}",
+						"Guid"
+					]
+				},
+				"description": "Retrieve the GUID for a single Respondent based on the Id provided."
+			},
+			"response": []
+		},
+		{
+			"name": "Respondent Results by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents/{{api_respondent_id}}/Results?PageSize=200",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents",
+						"{{api_respondent_id}}",
+						"Results"
+					],
+					"query": [
+						{
+							"key": "PageSize",
+							"value": "200"
+						}
+					]
+				},
+				"description": "Retrieve the results for a single Respondent Id."
+			},
+			"response": []
+		},
+		{
+			"name": "Respondent Comments by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents/{{api_respondent_id}}/Comments?PageSize=200",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents",
+						"{{api_respondent_id}}",
+						"Comments"
+					],
+					"query": [
+						{
+							"key": "PageSize",
+							"value": "200"
+						}
+					]
+				},
+				"description": "Retrieve the comments for a single Respondent Id."
+			},
+			"response": []
+		},
+		{
+			"name": "Respondent Comments by Question Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Respondents/{{api_respondent_id}}/Comments/{{api_question_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Respondents",
+						"{{api_respondent_id}}",
+						"Comments",
+						"{{api_question_id}}"
+					]
+				},
+				"description": "Retrieve the comments for a specified Respondent Id and Question ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Result by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Results/{{api_result_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Results",
+						"{{api_result_id}}"
+					]
+				},
+				"description": "Retrieve a single Result by Id."
+			},
+			"response": [
+				{
+					"name": "Result by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Results/6084",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Results",
+								"6084"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Results\": [\n        {\n            \"Id\": 6084,\n            \"RespId\": 1437,\n            \"QuesId\": 10279,\n            \"GroupId\": 150,\n            \"Sequence\": 9,\n            \"Type\": \"DropdownChoose\",\n            \"Page\": 3,\n            \"MarkedPage\": 0,\n            \"ReviewPage\": 0,\n            \"Answer\": \"Between $10,000 and $20,000\",\n            \"TotalPoints\": 0,\n            \"EarnedPoints\": 0,\n            \"Essay\": \"No\",\n            \"Marked\": \"No\",\n            \"DateAnswered\": \"2002-02-22T14:35:23-05:00\",\n            \"Uri\": \"http://example.onlinetests.app/api/Results/6084\",\n            \"RelatedUris\": null\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Topic by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/QuestionGroups/{{api_topic_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"QuestionGroups",
+						"{{api_topic_id}}"
+					]
+				},
+				"description": "Retrieve a single Topic by Id."
+			},
+			"response": [
+				{
+					"name": "Topic by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/QuestionGroups/149",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"QuestionGroups",
+								"149"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"QuestionGroups\": [\n        {\n            \"Id\": 149,\n            \"AssessId\": \"ASSESSMENTID\",\n            \"ReferenceId\": \"\",\n            \"Sequence\": 1,\n            \"Name\": \"COURSE 1123 EXAM Questions\",\n            \"QuestionPresentation\": \"Random\",\n            \"QuestionsToAsk\": 99999,\n            \"StartNewPage\": \"No\",\n            \"PassingScore\": 60,\n            \"PassingRequirement\": \"None\",\n            \"ResourceUrl\": \"\",\n            \"ViewDescriptionOnReview\": \"No\",\n            \"ShowOnSummary\": \"None\",\n            \"DateCreated\": \"2002-02-21T14:30:32-05:00\",\n            \"DateModified\": \"2007-02-21T09:03:40-05:00\",\n            \"BranchType\": \"NextQuestionGroup\",\n            \"BranchTarget\": \"\",\n            \"Uri\": \"https://example.onlinetests.app/api/QuestionGroups/100\",\n            \"RelatedUris\": {\n                \"Questions\": \"https://example.onlinetests.app/api/QuestionGroups/100/Questions\"\n            }\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Topic Questions by Topic Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/QuestionGroups/{{api_topic_id}}/Questions",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"QuestionGroups",
+						"{{api_topic_id}}",
+						"Questions"
+					]
+				},
+				"description": "Retrieve Questions based on the Topic Id provided."
+			},
+			"response": []
+		},
+		{
+			"name": "Workspaces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts"
+					]
+				},
+				"description": "Retrieve a single Workspace based on the Id provided."
+			},
+			"response": []
+		},
+		{
+			"name": "Workspace Assessments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts/{{api_workspace_id}}/Assessments",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts",
+						"{{api_workspace_id}}",
+						"Assessments"
+					]
+				},
+				"description": "Retrieve all Assessments for a Workspace Id."
+			},
+			"response": []
+		},
+		{
+			"name": "Workspace by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts/{{api_workspace_id}}",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts",
+						"{{api_workspace_id}}"
+					]
+				},
+				"description": "Retrieve a single Workspace by Workspace Id."
+			},
+			"response": [
+				{
+					"name": "Workspace by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_base_uri}}/Accounts/EXAMPLE",
+							"host": [
+								"{{auth_base_uri}}"
+							],
+							"path": [
+								"Accounts",
+								"EXAMPLE"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Accounts\": [\n        {\n            \"Id\": \"EXAMPLE\",\n            \"ParentAccountId\": \"\",\n            \"Password\": \"******\",\n            \"Name\": \"EXAMPLE Corporation\",\n            \"ContactName\": \"TheFirstName TheLastName\",\n            \"ContactTitle\": \"Instructional Designer\",\n            \"ContactAddress1\": \"1234 Main Street\",\n            \"ContactAddress2\": \"\",\n            \"ContactAddress3\": \"\",\n            \"ContactCity\": \"Anytown\",\n            \"ContactState\": \"NY\",\n            \"ContactPostalCode\": \"01234\",\n            \"ContactCountry\": \"USA\",\n            \"ContactPhone\": \"888-555-1235\",\n            \"ContactFax\": \"888-555-2345\",\n            \"ContactEmail\": \"firstname.lastname@example.com\",\n            \"DateCreated\": \"2002-02-21T00:00:00-05:00\",\n            \"DateModified\": \"2012-11-05T11:31:08-05:00\",\n            \"DateExpired\": \"3000-12-31T00:00:00-05:00\",\n            \"Uri\": \"http://example.onlinetests.app/api/Accounts/EXAMPLE\",\n            \"RelatedUris\": {\n                \"Children\": \"http://example.onlinetests.app/api/Accounts/EXAMPLE/Children\",\n                \"Assessments\": \"http://example.onlinetests.app/api/Accounts/EXAMPLE/Assessments\",\n                \"Respondents\": \"http://example.onlinetests.app/api/Accounts/EXAMPLE/Respondents\",\n                \"EmailTemplates\": \"http://example.onlinetests.app/api/Accounts/EXAMPLE/EmailTemplates\"\n            }\n        }\n    ],\n    \"Page\": 1,\n    \"PageSize\": 50,\n    \"TotalCount\": 1,\n    \"HasMore\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Workspaces below Primary Workspace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts/{{api_workspace_id}}/Children",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts",
+						"{{api_workspace_id}}",
+						"Children"
+					]
+				},
+				"description": "Retrieve all Workspaces under the Primary Workspace."
+			},
+			"response": []
+		},
+		{
+			"name": "Workspace Email Templates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts/{{api_workspace_id}}/ EmailTemplates",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts",
+						"{{api_workspace_id}}",
+						" EmailTemplates"
+					]
+				},
+				"description": "Retrieve all Email Templates for a Workspace Id."
+			},
+			"response": []
+		},
+		{
+			"name": "Workspace Respondents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{auth_base_uri}}/Accounts/{{api_workspace_id}}/Respondents",
+					"host": [
+						"{{auth_base_uri}}"
+					],
+					"path": [
+						"Accounts",
+						"{{api_workspace_id}}",
+						"Respondents"
+					]
+				},
+				"description": "Retrieve all Respondents for a Workspace Id."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{auth_user}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{auth_string}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_string",
+			"value": "YourAPIToken",
+			"type": "string"
+		},
+		{
+			"key": "auth_base_uri",
+			"value": "Base API URI",
+			"type": "string"
+		},
+		{
+			"key": "auth_user",
+			"value": "API-USER-NAME",
+			"type": "string"
+		},
+		{
+			"key": "api_assessment_id",
+			"value": "assessmentId",
+			"type": "string"
+		},
+		{
+			"key": "api_comment_id",
+			"value": "commentId",
+			"type": "string"
+		},
+		{
+			"key": "api_email_template_id",
+			"value": "emailTemplateId",
+			"type": "string"
+		},
+		{
+			"key": "api_email_address",
+			"value": "emailAddress",
+			"type": "string"
+		},
+		{
+			"key": "api_invitation_id",
+			"value": "invitationId",
+			"type": "string"
+		},
+		{
+			"key": "api_invitation_code",
+			"value": "invitationCode",
+			"type": "string"
+		},
+		{
+			"key": "api_question_id",
+			"value": "questionId",
+			"type": "string"
+		},
+		{
+			"key": "api_respondent_id",
+			"value": "respondentId",
+			"type": "string"
+		},
+		{
+			"key": "api_respondent_guid",
+			"value": "respondentGuid",
+			"type": "string"
+		},
+		{
+			"key": "api_respondent_uniqueId",
+			"value": "respondentFieldUniqueId",
+			"type": "string"
+		},
+		{
+			"key": "api_result_id",
+			"value": "resultId",
+			"type": "string"
+		},
+		{
+			"key": "api_topic_id",
+			"value": "topicId",
+			"type": "string"
+		},
+		{
+			"key": "api_workspace_id",
+			"value": "workspaceId",
+			"type": "string"
+		}
+	]
+}
